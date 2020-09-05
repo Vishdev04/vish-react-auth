@@ -7,7 +7,7 @@ A Internship assesment project for Bobble.ai.
 2. You can either install and run [MongoDB](https://www.mongodb.com/) locally or use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) as your database on cloud.
 3. Clone this repository into your system using:
 ```bash
-git clone https://github.com/Vishdev04/vishify.git
+git clone https://github.com/Vishdev04/vish-react-auth.git
 cd bobble-auth-app
 ```
 

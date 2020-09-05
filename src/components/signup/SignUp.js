@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import FBlogin from "./fbLogin";
 import GoogleAuth from "./googleLogin";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./SignUp.scss";
 
@@ -10,10 +13,24 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const confirmRegister = (id) => toast.success(`User registered with id`);
+
+  const errorRegister = (error) => toast.error(`There was an Error: ${error}`);
+
   const handleSignUp = (e) => {
-    console.log(`Name: ${firstName + " " + lastName}`);
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
+    console.log("register");
+    axios
+      .post("https://reqres.in/api/users", {
+        name: firstName + lastName,
+        email: email,
+        password: password,
+      })
+      .then(function (response) {
+        confirmRegister(response.id);
+      })
+      .catch(function (error) {
+        errorRegister(error);
+      });
   };
 
   return (

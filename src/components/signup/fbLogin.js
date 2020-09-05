@@ -32,18 +32,18 @@ const FBlogin = () => {
     );
   } else {
     fbContent = (
-      <div className='social fb-button'>
-        <FaFacebookF />
-        <FacebookLogin
-          appId='671224953508282'
-          autoLoad={true}
-          fields='name,email,picture'
-          callback={responseFacebook}
-          render={(renderProps) => (
-            <button onClick={componentClicked}>FB Login</button>
-          )}
-        />
-      </div>
+      <FacebookLogin
+        appId='671224953508282'
+        autoLoad={true}
+        fields='name,email,picture'
+        callback={responseFacebook}
+        render={(renderProps) => (
+          <div onClick={renderProps.onClick} className='social fb-button'>
+            <FaFacebookF />
+            <button>FB Login</button>
+          </div>
+        )}
+      />
     );
   }
 
